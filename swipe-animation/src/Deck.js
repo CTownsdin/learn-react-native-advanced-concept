@@ -7,7 +7,8 @@ import {
 } from 'react-native';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
-const SWIPE_THRESHOLD = SCREEN_WIDTH * 0.25;
+const SWIPE_THRESHOLD = SCREEN_WIDTH * 0.30;
+const SWIPE_OUT_DURATION = 250;
 
 class Deck extends Component {
   constructor(props) {
@@ -22,9 +23,9 @@ class Deck extends Component {
       },
       onPanResponderRelease: (event, gesture) => {
         if (gesture.dx > SWIPE_THRESHOLD) {
-          //  swipe right
+          this.forceSwipe('right');
         } else if (gesture.dx < -SWIPE_THRESHOLD) {
-          //  swipe left
+          this.forceSwipe('left');
         } else {
           this.resetPosition();
         }
@@ -45,6 +46,14 @@ class Deck extends Component {
       ...position.getLayout(),
       transform: [{ rotate }],
     };
+  }
+
+  forceSwipe(direction) {
+    const x = direction === 'right' ? SCREEN_WIDTH : -SCREEN_WIDTH;
+    Animated.timing(this.state.position, {
+      toValue: { x, y: 0 },
+      duration: 250,
+    }).start();
   }
 
   resetPosition() {
