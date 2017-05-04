@@ -8,9 +8,7 @@ class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Ball>
-          <Text>K</Text>
-        </Ball>
+        <Ball />
       </View>
     );
   }
@@ -20,8 +18,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fce4ec',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });
 
