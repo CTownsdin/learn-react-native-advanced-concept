@@ -98,7 +98,10 @@ class Deck extends Component {
       }
 
       return (
-        <Animated.View key={item.id} style={styles.cardStyle}>
+        <Animated.View
+          key={item.id}
+          style={[styles.cardStyle, { top: 10 * (idx - this.state.index) }]}
+        >
           {this.props.renderCard(item)}
         </Animated.View>
       );
@@ -118,7 +121,6 @@ const styles = {
   cardStyle: {
     position: 'absolute',
     width: SCREEN_WIDTH,
-    borderColor: '#fff',
   },
 };
 
