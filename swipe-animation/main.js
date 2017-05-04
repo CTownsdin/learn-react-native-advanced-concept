@@ -29,8 +29,22 @@ class App extends React.Component {
         </Text>
         <Button
           icon={{ name: 'code' }}
-          backgroundColor="#880e4f"
+          backgroundColor="#E91E63"
           title="Love This"
+        />
+      </Card>
+    );
+  }
+
+  renderNoMoreCards() {
+    return (
+      <Card title="All Done!">
+        <Text style={{ marginBottom: 10 }}>
+          There is no more content here
+        </Text>
+        <Button
+          title="Get more"
+          backgroundColor="#880e4f"
         />
       </Card>
     );
@@ -44,6 +58,7 @@ class App extends React.Component {
           renderCard={this.renderCard}
           onSwipeRight={() => {}}
           onSwipeLeft={() => {}}
+          renderNoMoreCards={this.renderNoMoreCards}
         />
       </View>
     );

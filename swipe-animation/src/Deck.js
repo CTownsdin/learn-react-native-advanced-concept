@@ -14,6 +14,7 @@ class Deck extends Component {
   static defaultProps = {
     onSwipeLeft: () => {},
     onSwipeRight: () => {},
+    renderNoMoreCards: () => {},
   }
 
   constructor(props) {
@@ -77,6 +78,10 @@ class Deck extends Component {
   }
 
   renderCards() {
+    if (this.state.index >= this.props.data.length) {
+      return this.props.renderNoMoreCards();
+    }
+
     return this.props.data.map((item, idx) => {
       if (idx < this.state.index) { return null; }
 
