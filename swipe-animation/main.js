@@ -53,13 +53,15 @@ class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Deck
-          data={DATA}
-          renderCard={this.renderCard}
-          onSwipeRight={() => {}}
-          onSwipeLeft={() => {}}
-          renderNoMoreCards={this.renderNoMoreCards}
-        />
+        <View style={styles.deck}>
+          <Deck
+            data={DATA}
+            renderCard={this.renderCard}
+            onSwipeRight={() => {}}
+            onSwipeLeft={() => {}}
+            renderNoMoreCards={this.renderNoMoreCards}
+          />
+        </View>
       </View>
     );
   }
@@ -69,6 +71,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fce4ec',
+  },
+  deck: {
+    top: 10,
   },
 });
 
