@@ -16,6 +16,15 @@ module.exports = function(req, res) {
         body: 'Your code is ' + code,
         to: phone,
         from: '+12052361303 '
+      }, (err) => {
+        if (err) {
+          return res.status(422).send({ error: err })
+        }
+
+        admin.database().ref('users/' + phone)
+          .update({ code, codeValid: true }, () => {
+            res.send({ success: true });
+          });
       })
     })
     .catch(err => {
