@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
-import { FormLabel, FormInput, Button, FormValidationMessage } from 'react-native-elements';
+import { View } from 'react-native';
+import { Text, FormLabel, FormInput, Button, FormValidationMessage } from 'react-native-elements';
 import axios from 'axios';
 
 const ROOT_URL = 'https://us-central1-one-time-project-7f632.cloudfunctions.net';
@@ -20,6 +20,8 @@ class SignInForm extends Component {
   render() {
     return (
       <View>
+        <Text h4>Sign In</Text>
+
         <View style={{ marginBottom: 10 }}>
           <FormLabel>Enter Phone Number</FormLabel>
           <FormInput
@@ -40,6 +42,7 @@ class SignInForm extends Component {
 
         <Button
           title="Submit"
+          buttonStyle={{ backgroundColor: '#8E24AA' }}
           onPress={this.handleSubmit}
         />
       </View>
