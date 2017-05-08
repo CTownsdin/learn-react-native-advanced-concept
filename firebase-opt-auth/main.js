@@ -1,11 +1,25 @@
 import Expo from 'expo';
 import React from 'react';
+import firebase from 'firebase';
 import { StyleSheet, View } from 'react-native';
 import { Divider, Text } from 'react-native-elements';
+import firebaseConfig from './firebase_config.json';
 import SignUpForm from './components/SignUpForm';
 import SignInForm from './components/SignInForm';
 
 class App extends React.Component {
+  componentDidMount() {
+    const config = {
+      apiKey: firebaseConfig.apiKey,
+      authDomain: firebaseConfig.authDomain,
+      databaseURL: firebaseConfig.databaseURL,
+      projectId: firebaseConfig.projectId,
+      storageBucket: firebaseConfig.storageBucket,
+      messagingSenderId: firebaseConfig.messagingSenderId
+    };
+    firebase.initializeApp(config);
+  }
+
   render() {
     return (
 	    <View style={styles.container}>
