@@ -6,7 +6,7 @@ import SignUpForm from './components/SignUpForm';
 class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
+	    <View style={styles.container}>
         <SignUpForm />
       </View>
     );
