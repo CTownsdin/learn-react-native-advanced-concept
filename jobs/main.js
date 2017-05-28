@@ -11,6 +11,10 @@ import ReviewScreen from './screens/ReviewScreen';
 import SettingScreen from './screens/SettingScreen';
 
 class App extends React.Component {
+  static navigationOptions = {
+
+  }
+
   render() {
     const MainNavigator = TabNavigator({
       welcome: { screen: WelcomeScreen },
