@@ -9,7 +9,7 @@ import { MapView } from 'expo';
 })
 class ReviewScreen extends Component {
   static navigationOptions = ({ navigation }) => ({
-    title: 'Review Jobs',
+    title: 'Favorites',
     headerRight: (
       <Button
         title="Settings"
