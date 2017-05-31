@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, Platform, ScrollView, Linking } from 'react-native';
-import { Button, Card } from 'react-native-elements';
+import { Button, Card, Icon } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { MapView } from 'expo';
 
@@ -20,6 +20,9 @@ class ReviewScreen extends Component {
     ),
     headerStyle: {
       marginTop: Platform.OS === 'android' ? 24 : 0
+    },
+    tabBarIcon: ({ tintColor }) => {
+      return <Icon name="favorite" size={30} color={tintColor} />;
     }
   });
 
