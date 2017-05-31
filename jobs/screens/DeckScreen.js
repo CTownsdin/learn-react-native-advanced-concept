@@ -3,11 +3,12 @@ import { View, Text, Platform } from 'react-native';
 import { connect } from 'react-redux';
 import { MapView } from 'expo';
 import { Card, Button } from 'react-native-elements';
+import * as actions from '../actions';
 import Swipe from '../components/Swipe';
 
 @connect(state => {
   return { jobs: state.jobs.results };
-})
+}, actions)
 class DeckScreen extends Component {
   renderCard(job) {
     const initialRegion = {
@@ -58,6 +59,7 @@ class DeckScreen extends Component {
           renderCard={this.renderCard}
           renderNoMoreCards={this.renderNoMoreCards}
           keyProp="jobkey"
+          onSwipeRight={job => this.props.likeJob(job)}
         />
       </View>
     );
